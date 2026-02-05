@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .boton {
+            padding: 12px 24px;
+            background-color: #007acc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .boton:hover {
+            background-color: #005a99;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido a mi Sitio Web</h1>
+    <p>Este sitio está alojado en GitHub Pages</p>
+    
+    <div class="menu">
+        <!-- Enlace como botón -->
+        <a href="pagina1.html" class="boton">Página 1</a>
+        
+        <!-- O usando button dentro de un formulario -->
+        <form action="pagina2.html" style="display: inline;">
+            <button type="submit" class="boton">Página 2</button>
+        </form>
+        
+        <!-- Más botones -->
+        <a href="about.html" class="boton">Acerca de</a>
+        <a href="contacto.html" class="boton">Contacto</a>
+    </div>
+    
+    <h2>O usando botones con JavaScript:</h2>
+    <div class="menu">
+        <button onclick="irAPagina('pagina1.html')" class="boton">Ir a Página 1 (JS)</button>
+        <button onclick="irAPagina('pagina3.html')" class="boton">Ir a Página 3 (JS)</button>
+    </div>
+    
+    <script>
+        function irAPagina(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
