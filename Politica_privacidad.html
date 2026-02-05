@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - Aplicación de Estudios de Caso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 12px;
+            color: #3498db;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        h3 i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .email-link {
+            color: white;
+            background-color: rgba(255,255,255,0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .email-link:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 15px;
+                border-radius: 0 0 15px 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content-card {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Estilos para iconos (usando Unicode como fallback) */
+        .icon {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><i class="fas fa-shield-alt"></i> Política de Privacidad</h1>
+            <p class="subtitle">Aplicación de Estudios de Caso Académicos y Profesionales</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Información sobre el Tratamiento de Datos Personales</h2>
+            
+            <p>Esta aplicación es desarrollada y administrada con un propósito exclusivo de <strong>investigación y estudio de casos académicos o profesionales</strong>. Nos comprometemos a proteger la privacidad y confidencialidad de los datos personales que nos proporcione.</p>
+            
+            <h3><i class="fas fa-bullseye"></i> Finalidad del Tratamiento</h3>
+            <p>Los datos que usted ingrese en esta aplicación (los cuales pueden incluir información personal, profesional, de contacto u otra información relevante para el caso de estudio) serán tratados <strong>exclusivamente</strong> para los fines de:</p>
+            
+            <ul>
+                <li>Análisis, investigación y elaboración de estudios de caso específicos.</li>
+                <li>Experimentación y mejora de metodologías pedagógicas o profesionales.</li>
+                <li>Generar insights y conclusiones dentro del contexto académico o de investigación definido.</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <h3><i class="fas fa-check-circle"></i> Carácter de los Datos y Actualización</h3>
+                <p>Para garantizar la validez del estudio, es importante que la información proporcionada sea veraz y esté actualizada. Usted es responsable de la exactitud de los datos ingresados.</p>
+            </div>
+            
+            <h3><i class="fas fa-lock"></i> Confidencialidad y Seguridad</h3>
+            <p>Garantizamos la confidencialidad de sus datos y empleamos medidas de seguridad apropiadas para protegerlos contra accesos no autorizados, alteración o divulgación. Los datos serán utilizados de manera <strong>anónima o pseudonimizada</strong> en los informes o publicaciones resultantes, salvo que se especifique lo contrario y cuente con un consentimiento expreso adicional para ello.</p>
+            
+            <h3><i class="fas fa-database"></i> Almacenamiento y Conservación</h3>
+            <p>Sus datos personales serán almacenados en una base de datos segura. Los datos serán conservados únicamente durante el tiempo necesario para cumplir con los fines de la investigación o el estudio de caso, o por el plazo requerido por normativas académicas o legales aplicables.</p>
+            
+            <h3><i class="fas fa-exchange-alt"></i> Transferencia de Datos</h3>
+            <p>En el contexto de una investigación colaborativa, sus datos (siempre de forma anónima o agregada, salvo consentimiento explícito) podrían ser compartidos exclusivamente con:</p>
+            
+            <ul>
+                <li>Instituciones académicas o de investigación directamente vinculadas al proyecto.</li>
+                <li>Supervisores, evaluadores o comités de ética de la institución responsable.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>Importante:</strong> Los datos <strong>NO</strong> serán transferidos con fines comerciales, publicitarios o de marketing.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-user-check"></i> Sus Derechos</h2>
+            
+            <p>De acuerdo con la legislación de protección de datos aplicable (como la Ley Nº 29733 del Perú), usted tiene derecho a:</p>
+            
+            <ul>
+                <li><strong>Acceder</strong> a sus datos personales que tenemos.</li>
+                <li><strong>Rectificar</strong> datos inexactos o incompletos.</li>
+                <li><strong>Solicitar la supresión</strong> de sus datos (derecho al olvido), cuando ya no sean necesarios para los fines de la investigación o retire su consentimiento.</li>
+                <li><strong>Oponerse</strong> al tratamiento de sus datos para fines específicos.</li>
+                <li><strong>Revocar</strong> su consentimiento en cualquier momento.</li>
+            </ul>
+            
+            <div class="contact-info">
+                <h3><i class="fas fa-envelope"></i> Para ejercer estos derechos, contáctenos:</h3>
+                <a href="mailto:investigacion.casos@institucion.edu" class="email-link">
+                    <i class="fas fa-paper-plane"></i> investigacion.casos@institucion.edu
+                </a>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-cookie-bite"></i> Uso de Datos de Navegación</h2>
+            <p>Esta aplicación puede utilizar cookies o tecnologías similares estrictamente necesarias para su funcionamiento básico (como mantener su sesión activa). También podríamos utilizar cookies analíticas para comprender cómo se interactúa con la aplicación y mejorar la experiencia de usuario en futuras iteraciones.</p>
+            
+            <div class="highlight-box">
+                <p>Este uso tendrá <strong>fines exclusivos de optimización técnica y análisis de uso interno para la investigación</strong>.</p>
+            </div>
+            
+            <p>La aceptación o denegación de cookies no esenciales no afectará su capacidad para utilizar la aplicación y participar en el estudio. Puede configurar su navegador para rechazar estas cookies.</p>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-file-signature"></i> Autorización y Consentimiento</h2>
+            
+            <p>Al proporcionar sus datos y utilizar esta aplicación, usted <strong>autoriza expresamente</strong> que la información ingresada sea tratada para los fines de <strong>investigación y estudio de caso</strong> descritos anteriormente.</p>
+            
+            <h3><i class="fas fa-clipboard-check"></i> Declara entender que:</h3>
+            
+            <ul>
+                <li>Los datos serán analizados en conjunto con otros casos para extraer conclusiones generales o patrones.</li>
+                <li>Los resultados de la investigación podrán ser publicados en medios académicos (artículos, tesis, presentaciones) manteniendo, en la medida de lo posible, el <strong>anonimato o la confidencialidad</strong> de la información personal identificable.</li>
+                <li>El responsable del proyecto podrá modificar esta política para adaptarla a nuevos requerimientos éticos o legales, notificándolo dentro de la aplicación o por el medio de contacto proporcionado.</li>
+            </ul>
+            
+            <p class="note"><em>Esta política es específica para el contexto de investigación. Para consultar las políticas generales de privacidad de la institución responsable, visite el sitio web institucional correspondiente.</em></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© <span id="current-year"></span> Aplicación de Estudios de Caso. Todos los derechos reservados.</p>
+        <p>Última actualización: <span id="current-date"></span></p>
+    </footer>
+
+    <script>
+        // Establecer año y fecha actual en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = now.toLocaleDateString('es-ES', options);
+        
+        // Efecto suave de desplazamiento para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
