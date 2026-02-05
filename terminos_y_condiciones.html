@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - Aplicación de Estudios de Caso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #e74c3c;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 12px;
+            color: #e74c3c;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        h3 i {
+            margin-right: 10px;
+            color: #e74c3c;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            text-align: justify;
+        }
+
+        ul li:before {
+            content: "•";
+            color: #e74c3c;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        ol li {
+            counter-increment: item;
+            margin-bottom: 12px;
+        }
+
+        ol li:before {
+            content: counter(item) ".";
+            color: #e74c3c;
+            font-weight: bold;
+            display: inline-block;
+            width: 2em;
+            margin-left: -2.5em;
+            text-align: right;
+        }
+
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .legal-notice {
+            background-color: #e8f4fc;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .acceptance-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .acceptance-section h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 15px;
+        }
+
+        .checkbox-container input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-container label {
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .continue-btn {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .continue-btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .continue-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .terms-version {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+            border: 1px solid #ecf0f1;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .definition-list {
+            margin: 20px 0;
+        }
+
+        .definition-list dt {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .definition-list dd {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 2px solid #ecf0f1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 15px;
+                border-radius: 0 0 15px 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content-card {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .checkbox-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #e74c3c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+
+        .scroll-top:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <h1><i class="fas fa-file-contract"></i> Términos y Condiciones</h1>
+            <p class="subtitle">Aplicación de Estudios de Caso Académicos y Profesionales</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Introducción</h2>
+            
+            <p>Bienvenido a la Aplicación de Estudios de Caso. Al acceder y utilizar esta aplicación, usted acepta cumplir y estar sujeto a los siguientes términos y condiciones de uso. Si no está de acuerdo con alguna parte de estos términos, le recomendamos que no utilice nuestra aplicación.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Propósito Académico:</strong> Esta aplicación está diseñada exclusivamente para fines de investigación, estudio y análisis de casos académicos o profesionales. No está destinada al uso comercial ni a la prestación de servicios profesionales.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-gavel"></i> Definiciones</h2>
+            
+            <div class="definition-list">
+                <dl>
+                    <dt>Aplicación</dt>
+                    <dd>Se refiere al software, plataforma o herramienta digital desarrollada para la recopilación y análisis de datos para estudios de caso.</dd>
+                    
+                    <dt>Usuario</dt>
+                    <dd>Cualquier persona que acceda, navegue o utilice la aplicación, ya sea como participante en un estudio, investigador o visitante.</dd>
+                    
+                    <dt>Datos del Estudio</dt>
+                    <dd>Información proporcionada por los usuarios con fines de investigación, que puede incluir datos personales, profesionales, académicos o cualquier otra información relevante para el caso de estudio.</dd>
+                    
+                    <dt>Investigador Responsable</dt>
+                    <dd>La persona o entidad académica que dirige el estudio de caso y es responsable del tratamiento ético de los datos.</dd>
+                    
+                    <dt>Contenido</dt>
+                    <dd>Todos los elementos incluidos en la aplicación: textos, imágenes, formularios, interfaces, código y cualquier otro material.</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-user-check"></i> Condiciones de Uso</h2>
+            
+            <h3><i class="fas fa-clipboard-check"></i> Aceptación de Términos</h3>
+            <p>Al utilizar esta aplicación, usted declara que:</p>
+            
+            <ol>
+                <li>Ha leído, entendido y acepta estos términos y condiciones en su totalidad.</li>
+                <li>Tiene la capacidad legal para aceptar estos términos o cuenta con la autorización de un tutor o representante legal.</li>
+                <li>La información que proporcione será veraz, exacta y actualizada.</li>
+                <li>Comprende que su participación es voluntaria y puede retirarse en cualquier momento.</li>
+            </ol>
+            
+            <h3><i class="fas fa-ban"></i> Usos Prohibidos</h3>
+            <p>Queda estrictamente prohibido:</p>
+            
+            <ul>
+                <li>Utilizar la aplicación para fines distintos a los académicos o de investigación autorizados.</li>
+                <li>Manipular, alterar o intentar vulnerar la seguridad de la aplicación.</li>
+                <li>Proporcionar información falsa, engañosa o inexacta.</li>
+                <li>Utilizar la aplicación de manera que pueda dañar, deshabilitar o sobrecargar la plataforma.</li>
+                <li>Intentar acceder a datos de otros usuarios sin autorización.</li>
+                <li>Realizar ingeniería inversa, descompilar o desensamblar cualquier parte de la aplicación.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>Importante:</strong> El incumplimiento de estas condiciones puede resultar en la terminación inmediata de su acceso a la aplicación y la posible eliminación de sus datos.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-database"></i> Propiedad Intelectual y Derechos</h2>
+            
+            <h3><i class="fas fa-copyright"></i> Derechos de Propiedad</h3>
+            <p>Todos los derechos de propiedad intelectual sobre la aplicación, su diseño, interfaz y contenido (excluyendo los datos proporcionados por usuarios) son propiedad exclusiva de la entidad académica o institución responsable del desarrollo.</p>
+            
+            <h3><i class="fas fa-user-graduate"></i> Derechos sobre los Datos</h3>
+            <p>Con respecto a los datos proporcionados para el estudio:</p>
+            
+            <ul>
+                <li>Usted conserva la propiedad de sus datos personales.</li>
+                <li>Concede una licencia no exclusiva para utilizar sus datos con fines de investigación.</li>
+                <li>Los resultados agregados y anonimizados pueden ser publicados en medios académicos.</li>
+                <li>Tiene derecho a solicitar la eliminación de sus datos personales en cualquier momento.</li>
+            </ul>
+            
+            <div class="legal-notice">
+                <p><strong>Aviso Legal:</strong> La publicación de resultados de investigación seguirá los estándares éticos académicos y protegerá la confidencialidad de los participantes según lo establecido en la política de privacidad adjunta.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> Limitaciones de Responsabilidad</h2>
+            
+            <h3><i class="fas fa-shield-alt"></i> Alcance de la Responsabilidad</h3>
+            <p>La aplicación se proporciona "tal cual" y "según disponibilidad". La institución responsable:</p>
+            
+            <ul>
+                <li>No garantiza la disponibilidad ininterrumpida o libre de errores de la aplicación.</li>
+                <li>No se hace responsable por daños indirectos, incidentales o consecuentes derivados del uso de la aplicación.</li>
+                <li>Se reserva el derecho de modificar, suspender o discontinuar la aplicación en cualquier momento.</li>
+                <li>No es responsable por la exactitud o integridad de los datos proporcionados por los usuarios.</li>
+            </ul>
+            
+            <h3><i class="fas fa-user-shield"></i> Responsabilidad del Usuario</h3>
+            <p>Usted acepta que es responsable de:</p>
+            
+            <ol>
+                <li>Mantener la confidencialidad de sus credenciales de acceso (si aplica).</li>
+                <li>Todas las actividades que ocurran bajo su cuenta de usuario.</li>
+                <li>Proteger sus dispositivos contra accesos no autorizados.</li>
+                <li>El contenido que envíe a través de la aplicación.</li>
+            </ol>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title"><i class="fas fa-exchange-alt"></i> Modificaciones y Terminación</h2>
+            
+            <h3><i class="fas fa-edit"></i> Modificaciones a los Términos</h3>
+            <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones serán efectivas inmediatamente después de su publicación en la aplicación. El uso continuado de la aplicación después de dichas modificaciones constituye su aceptación de los nuevos términos.</p>
+            
+            <h3><i class="fas fa-power-off"></i> Terminación del Acceso</h3>
+            <p>Podemos suspender o terminar su acceso a la aplicación si:</p>
+            
+            <ul>
+                <li>Incumple estos términos y condiciones.</li>
+                <li>Solicita la eliminación de su cuenta y datos.</li>
+                <li>El estudio de caso para el que fue diseñada la aplicación ha concluido.</li>
+                <li>Por razones técnicas, operativas o legales.</li>
+            </ul>
+            
+            <div class="terms-version">
+                <p><strong>Versión actual:</strong> 1.0 | <strong>Fecha de última actualización:</strong> <span id="terms-date"></span></p>
+            </div>
+        </div>
+
+        <div class="acceptance-section">
+            <h3><i class="fas fa-handshake"></i> Aceptación de Términos y Condiciones</h3>
+            
+            <p>Para continuar utilizando la aplicación, debe aceptar los términos y condiciones establecidos anteriormente.</p>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="acceptTerms">
+                <label for="acceptTerms">He leído, entendido y acepto los Términos y Condiciones de uso de la aplicación.</label>
+            </div>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="acceptPrivacy">
+                <label for="acceptPrivacy">He leído y acepto la Política de Privacidad de la aplicación.</label>
+            </div>
+            
+            <button class="continue-btn" id="continueBtn" disabled>
+                <i class="fas fa-check-circle"></i> Aceptar y Continuar
+            </button>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">
+                Al hacer clic en "Aceptar y Continuar", confirma su acuerdo con todos los términos establecidos.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© <span id="current-year"></span> Aplicación de Estudios de Caso. Todos los derechos reservados.</p>
+        <p>Para preguntas o aclaraciones sobre estos términos, contacte a: <a href="mailto:legal.estudios@institucion.edu" style="color: #3498db;">legal.estudios@institucion.edu</a></p>
+    </footer>
+
+    <script>
+        // Establecer año y fecha actual
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('terms-date').textContent = now.toLocaleDateString('es-ES', options);
+        
+        // Validación de checkboxes
+        const acceptTerms = document.getElementById('acceptTerms');
+        const acceptPrivacy = document.getElementById('acceptPrivacy');
+        const continueBtn = document.getElementById('continueBtn');
+        
+        function validateCheckboxes() {
+            if (acceptTerms.checked && acceptPrivacy.checked) {
+                continueBtn.disabled = false;
+            } else {
+                continueBtn.disabled = true;
+            }
+        }
+        
+        acceptTerms.addEventListener('change', validateCheckboxes);
+        acceptPrivacy.addEventListener('change', validateCheckboxes);
+        
+        // Acción del botón continuar
+        continueBtn.addEventListener('click', function() {
+            if (!this.disabled) {
+                alert('¡Gracias por aceptar los términos y condiciones! Puede continuar utilizando la aplicación.');
+                // En un caso real, aquí se redirigiría a la aplicación principal
+                // window.location.href = 'app-main.html';
+            }
+        });
+        
+        // Botón de scroll top
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Efecto suave de desplazamiento para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
