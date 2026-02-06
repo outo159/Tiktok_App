@@ -31,12 +31,67 @@
             border-radius: 0 0 20px 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             margin-bottom: 40px;
+            position: relative;
         }
 
         .header-content {
             max-width: 1000px;
             margin: 0 auto;
             text-align: center;
+        }
+
+        /* Contenedor para los botones en el header */
+        .header-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        /* Estilo para el botón de cerrar sesión */
+        .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Botón para ir a página principal */
+        .home-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .home-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         h1 {
@@ -49,7 +104,7 @@
             font-size: 1.1rem;
             opacity: 0.9;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 20px auto;
         }
 
         .content-card {
@@ -286,6 +341,29 @@
                 flex-direction: column;
                 text-align: center;
             }
+            
+            .header-buttons {
+                position: static;
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            .logout-btn, .home-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .logout-btn, .home-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         .scroll-top {
@@ -323,7 +401,16 @@
         <div class="header-content">
             <h1><i class="fas fa-file-contract"></i> Términos y Condiciones</h1>
             <p class="subtitle">Aplicación de Estudios de Caso Académicos y Profesionales</p>
-            <a href="App_page.html" class="boton">Pagina principal</a>
+            
+            <!-- Contenedor para botones en el header -->
+            <div class="header-buttons">
+                <a href="App_page.html" class="home-btn">
+                    <i class="fas fa-home"></i> Página Principal
+                </a>
+                <a href="https://outo159.github.io/Tiktok_App/Login.html" class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </a>
+            </div>
         </div>
     </header>
 
@@ -517,6 +604,13 @@
                 alert('¡Gracias por aceptar los términos y condiciones! Puede continuar utilizando la aplicación.');
                 // En un caso real, aquí se redirigiría a la aplicación principal
                 // window.location.href = 'app-main.html';
+            }
+        });
+        
+        // Función para cerrar sesión con confirmación
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            if (!confirm('¿Está seguro de que desea cerrar sesión?')) {
+                e.preventDefault();
             }
         });
         
