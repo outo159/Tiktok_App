@@ -1,63 +1,443 @@
-<button class="boton login-btn" id="loginBtn">Iniciar Sesión</button>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<!-- Modal de Login -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="closeModal">&times;</span>
-        <h2>Iniciar Sesión</h2>
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: #00f2fe;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00f2fe;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .boton {
+            background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+        }
+
+        .boton:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.6);
+        }
+
+        .login-btn {
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .login-btn:hover {
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #f5576c;
+        }
+
+        .modal-content h2 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #4facfe;
+            outline: none;
+        }
+
+        .error-message {
+            color: #f5576c;
+            background-color: rgba(245, 87, 108, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .success-message {
+            color: #2ecc71;
+            background-color: rgba(46, 204, 113, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #00f2fe;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-lock"></i>
+                <span>SecureAccess</span>
             </div>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="hero">
+                <h1>Acceso Seguro a la Aplicación</h1>
+                <p>Ingresa con tus credenciales para acceder a todas las funciones de la plataforma. Tu seguridad es nuestra prioridad.</p>
+                <button class="boton login-btn" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
             </div>
-            <div class="error-message" id="errorMessage">Credenciales incorrectas. Inténtelo de nuevo.</div>
-            <button type="submit" class="boton" style="width: 100%;">Ingresar</button>
-        </form>
-        <div class="success-message" id="successMessage"></div>
-        <div style="margin-top: 15px; font-size: 14px; color: #666;">
+            
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Protección Avanzada</h3>
+                    <p>Tu información está protegida con encriptación de última generación.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Acceso Rápido</h3>
+                    <p>Ingresa a la plataforma en segundos con un solo clic.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Multiplataforma</h3>
+                    <p>Accede desde cualquier dispositivo con conexión a internet.</p>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Modal de Login -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <h2>Iniciar Sesión</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Usuario:</label>
+                        <input type="text" id="username" name="username" required placeholder="Ingresa tu usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" required placeholder="Ingresa tu contraseña">
+                    </div>
+                    <div class="error-message" id="errorMessage">
+                        <i class="fas fa-exclamation-circle"></i> Credenciales incorrectas. Inténtelo de nuevo.
+                    </div>
+                    <button type="submit" class="boton" style="width: 100%;">
+                        <i class="fas fa-sign-in-alt"></i> Ingresar
+                    </button>
+                </form>
+                <div class="success-message" id="successMessage"></div>
+                <div style="margin-top: 15px; font-size: 14px; color: #666; text-align: center;">
+                    <p>Usuario de prueba: <strong>admin</strong> | Contraseña: <strong>admin123</strong></p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-<script>
-// Script de validación y redirección
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
     
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    
-    // Cambia estas credenciales por las que quieras usar
-    const validUser = 'admin';
-    const validPass = 'admin123';
-    
-    if (username === validUser && password === validPass) {
-        // Redirigir a la página de TikTok App
-        window.location.href = 'https://outo159.github.io/Tiktok_App/App_page.html';
-    } else {
-        // Mostrar mensaje de error
-        document.getElementById('errorMessage').style.display = 'block';
-    }
-});
+    <footer>
+        <p>&copy; 2023 SecureAccess. Todos los derechos reservados.</p>
+    </footer>
 
-// Script para abrir/cerrar el modal (opcional, si no lo tienes ya)
-document.getElementById('loginBtn').addEventListener('click', function() {
-    document.getElementById('loginModal').style.display = 'block';
-});
-
-document.getElementById('closeModal').addEventListener('click', function() {
-    document.getElementById('loginModal').style.display = 'none';
-});
-
-// Cerrar modal al hacer clic fuera
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('loginModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-});
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementos del DOM
+            const loginBtn = document.getElementById('loginBtn');
+            const loginModal = document.getElementById('loginModal');
+            const closeModal = document.getElementById('closeModal');
+            const loginForm = document.getElementById('loginForm');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Credenciales válidas
+            const validCredentials = {
+                username: 'admin',
+                password: 'admin123'
+            };
+            
+            // Abrir modal
+            loginBtn.addEventListener('click', function() {
+                loginModal.style.display = 'flex';
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+                loginForm.reset();
+            });
+            
+            // Cerrar modal
+            closeModal.addEventListener('click', function() {
+                loginModal.style.display = 'none';
+            });
+            
+            // Cerrar modal al hacer clic fuera
+            window.addEventListener('click', function(event) {
+                if (event.target === loginModal) {
+                    loginModal.style.display = 'none';
+                }
+            });
+            
+            // Manejar envío del formulario
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                // Ocultar mensajes anteriores
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+                
+                // Validar credenciales
+                if (username === validCredentials.username && password === validCredentials.password) {
+                    // Mostrar mensaje de éxito
+                    successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Acceso concedido. Redirigiendo...';
+                    successMessage.style.display = 'block';
+                    
+                    // Redirigir después de 1 segundo
+                    setTimeout(function() {
+                        window.location.href = 'https://outo159.github.io/Tiktok_App/App_page.html';
+                    }, 1000);
+                } else {
+                    // Mostrar mensaje de error con animación
+                    errorMessage.style.display = 'block';
+                    errorMessage.style.animation = 'shake 0.5s ease';
+                    setTimeout(() => {
+                        errorMessage.style.animation = '';
+                    }, 500);
+                }
+            });
+            
+            // Agregar estilo para animación de shake
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
