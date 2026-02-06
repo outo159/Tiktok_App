@@ -130,9 +130,6 @@
     </style>
 </head>
 <body>
-    <!-- Botón de Login -->
-    <button class="boton login-btn" id="loginBtn">Iniciar Sesión</button>
-    
     <!-- Información del usuario (cuando está logueado) -->
     <div class="user-info" id="userInfo">
         <span id="usernameDisplay"></span>
@@ -140,37 +137,10 @@
     </div>
     
     <h1>Bienvenido a mi Sitio Web</h1>
-    <p>Este sitio está alojado en GitHub Pages</p>
     
     <div class="menu">
         <a href="Politica_privacidad.html" class="boton">Política y privacidad</a>
         <a href="terminos_y_condiciones.html" class="boton">Términos y condiciones</a>
-    </div>
-    
-    <!-- Modal de Login -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeModal">&times;</span>
-            <h2>Iniciar Sesión</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="username">Usuario:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="error-message" id="errorMessage">Credenciales incorrectas. Inténtelo de nuevo.</div>
-                <button type="submit" class="boton" style="width: 100%;">Ingresar</button>
-            </form>
-            <div class="success-message" id="successMessage"></div>
-            <div style="margin-top: 15px; font-size: 14px; color: #666;">
-                <p>Credenciales de prueba:</p>
-                <p><strong>Usuario:</strong> Kolia123</p>
-                <p><strong>Contraseña:</strong> Kolianus123$</p>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -185,10 +155,6 @@
         const usernameDisplay = document.getElementById('usernameDisplay');
         const logoutBtn = document.getElementById('logoutBtn');
         
-        // Credenciales válidas
-        const VALID_USERNAME = "Kolia123";
-        const VALID_PASSWORD = "Kolianus123$";
-        
         // Verificar si hay una sesión activa al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
             const loggedInUser = localStorage.getItem('loggedInUser');
@@ -196,56 +162,7 @@
                 showUserInfo(loggedInUser);
             }
         });
-        
-        // Mostrar modal de login
-        loginBtn.addEventListener('click', function() {
-            loginModal.style.display = 'block';
-        });
-        
-        // Cerrar modal de login
-        closeModal.addEventListener('click', function() {
-            loginModal.style.display = 'none';
-            resetLoginForm();
-        });
-        
-        // Cerrar modal al hacer clic fuera del contenido
-        window.addEventListener('click', function(event) {
-            if (event.target === loginModal) {
-                loginModal.style.display = 'none';
-                resetLoginForm();
-            }
-        });
-        
-        // Procesar formulario de login
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            // Validar credenciales
-            if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-                // Login exitoso
-                successMessage.textContent = `¡Bienvenido, ${username}!`;
-                successMessage.style.display = 'block';
-                errorMessage.style.display = 'none';
-                
-                // Guardar sesión
-                localStorage.setItem('loggedInUser', username);
-                
-                // Esperar 1 segundo y cerrar modal
-                setTimeout(function() {
-                    loginModal.style.display = 'none';
-                    showUserInfo(username);
-                    resetLoginForm();
-                }, 1000);
-            } else {
-                // Credenciales incorrectas
-                errorMessage.style.display = 'block';
-                successMessage.style.display = 'none';
-            }
-        });
-        
+    
         // Cerrar sesión
         logoutBtn.addEventListener('click', function() {
             localStorage.removeItem('loggedInUser');
